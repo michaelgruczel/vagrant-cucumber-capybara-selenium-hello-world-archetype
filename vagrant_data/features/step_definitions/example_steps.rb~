@@ -1,0 +1,12 @@
+Given /^I am on my homepage$/ do
+  visit('/')
+end
+
+When /^I click "([^"]*)"$/ do |term|
+  find_button('Send').click
+  fill_in('q',:with => term)
+end
+
+Then /^I should see results$/ do
+  page.should have_content('island')
+end
